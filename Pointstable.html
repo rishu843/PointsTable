@@ -3,155 +3,178 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gully Cricket Opening Ceremony</title>
+  <title>Points Table Updater</title>
   <style>
-    /* Theme Colors */
-    :root {
-      --light: #fff;
-      --gold: #ffd700;
-      --neon: #39ff14;
-      --bg: #0f0f0f;
-    }
-
     body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
       margin: 0;
-      padding: 0;
-      background: url('https://i.imgur.com/nF5x9q9.gif') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Segoe UI', sans-serif;
-      color: var(--light);
-      overflow-x: hidden;
-    }
-
-    header {
-      text-align: center;
-      padding: 60px 20px 20px;
-      background: rgba(0, 0, 0, 0.7);
-    }
-
-    header h1 {
-      font-size: 3rem;
-      color: var(--gold);
-      text-shadow: 0 0 10px var(--gold), 0 0 20px var(--gold);
-      animation: flicker 2s infinite;
-    }
-
-    header h2 {
-      font-size: 1.5rem;
-      color: var(--neon);
-      margin-top: 10px;
-      animation: glow 3s ease-in-out infinite;
-    }
-
-    @keyframes flicker {
-      0%, 100% { opacity: 1; }
-      45% { opacity: 0.4; }
-      50% { opacity: 0.1; }
-      55% { opacity: 0.4; }
-    }
-
-    @keyframes glow {
-      0%, 100% { text-shadow: 0 0 10px var(--neon), 0 0 20px var(--neon); }
-      50% { text-shadow: 0 0 30px var(--neon), 0 0 60px var(--neon); }
-    }
-
-    section.players {
-      padding: 30px;
-      background: rgba(0, 0, 0, 0.6);
-      margin: 20px auto;
-      max-width: 1000px;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-    }
-
-    section h3 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      color: var(--gold);
-      border-bottom: 2px solid var(--gold);
-      padding-bottom: 5px;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    ul li {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 10px 15px;
-      border-radius: 10px;
-      transition: all 0.3s ease;
-      flex: 1 1 150px;
-      text-align: center;
-      cursor: pointer;
-      color: var(--light);
-    }
-
-    ul li:hover {
-      background: var(--neon);
-      color: #000;
-      box-shadow: 0 0 15px var(--neon), 0 0 30px var(--neon);
-      transform: scale(1.1);
-    }
-
-    footer {
-      text-align: center;
       padding: 20px;
-      color: var(--light);
-      background: rgba(0, 0, 0, 0.7);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: #fff;
+    }
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #007bff;
+      color: white;
     }
   </style>
 </head>
 <body>
+  <h1>🏏 Points Table - Young Inspiration Cricket League</h1>
 
-  <header>
-    <h1>🎆 Welcome to Gully Cricket League 🎆</h1>
-    <h2>🔥 Celebrate the Grand Opening Ceremony 2025 🔥</h2>
-  </header>
+  <input type="text" id="teamA" placeholder="Enter Team A Name" />
+  <input type="text" id="teamB" placeholder="Enter Team B Name" />
+  <input type="text" id="winner" placeholder="Enter Winning Team Name" />
+  <input type="number" id="runDiff" placeholder="Run Difference" />
+  <input type="number" id="ballsLeft" placeholder="Balls Left (e.g., 18)" />
+  <button onclick="updateMatch()">Submit Result</button>
 
-  <section class="players">
-    <h3>Street Warriors</h3>
-    <ul>
-      <li>Vikash</li><li>Gurudas</li><li>Anjani</li><li>Satendar</li>
-      <li>Manti</li><li>Himesh</li><li>Kumar</li><li>Rajkumar</li>
-      <li>Rahul</li><li>Falak</li><li>Shivam</li><li>Vipin</li>
-    </ul>
-  </section>
+  <h2>Points Table</h2>
+  <table id="pointsTable">
+    <thead>
+      <tr>
+        <th>Team</th>
+        <th>Played</th>
+        <th>Won</th>
+        <th>Lost</th>
+        <th>Points</th>
+        <th>NRR</th>
+      </tr>
+    </thead>
+    <tbody id="pointsBody">
+      <tr><td>Street Warriors</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0.00</td></tr>
+      <tr><td>Boundary Blasters</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0.00</td></tr>
+      <tr><td>Gully Gladiators</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0.00</td></tr>
+      <tr><td>Pitch Pirates</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0.00</td></tr>
+    </tbody>
+  </table>
 
-  <section class="players">
-    <h3>Boundary Blasters</h3>
-    <ul>
-      <li>Rishu</li><li>Vishal</li><li>Anay</li><li>Dhoni</li>
-      <li>Mithu</li><li>Vikash</li><li>Ajmal</li><li>Anjit</li>
-      <li>Satish</li><li>Rohit</li>
-    </ul>
-  </section>
+  <h2>Match History</h2>
+  <table id="matchHistory">
+    <thead>
+      <tr>
+        <th>Team A</th>
+        <th>Team B</th>
+        <th>Winner</th>
+        <th>Run Diff</th>
+        <th>Balls Left</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
 
-  <section class="players">
-    <h3>Gully Gladiators</h3>
-    <ul>
-      <li>Shyam S.</li><li>Bhola</li><li>Akthar</li><li>Ajaj</li>
-      <li>Manan</li><li>Chotu</li><li>Gupta</li><li>Shubham</li>
-      <li>Santosh</li><li>Suhaib</li><li>Munna Ali</li>
-    </ul>
-  </section>
+  <script>
+    const defaultTeams = ['Street Warriors', 'Boundary Blasters', 'Gully Gladiators', 'Pitch Pirates'];
 
-  <section class="players">
-    <h3>Pitch Pirates</h3>
-    <ul>
-      <li>Sanjay</li><li>Ranjeet</li><li>Golu</li><li>Prince</li>
-      <li>Bablu</li><li>Kurban</li><li>Raja</li><li>Gupta</li>
-      <li>Sahil</li><li>Dharmendra</li><li>Sonu</li><li>Munna</li>
-    </ul>
-  </section>
+    function loadPoints() {
+      const saved = JSON.parse(localStorage.getItem('pointsTable')) || {};
+      const rows = document.querySelectorAll('#pointsTable tbody tr');
+      rows.forEach(row => {
+        const team = row.cells[0].textContent;
+        if (saved[team]) {
+          const data = saved[team];
+          row.cells[1].textContent = data.played;
+          row.cells[2].textContent = data.won;
+          row.cells[3].textContent = data.lost;
+          row.cells[4].textContent = data.points;
+          row.cells[5].textContent = data.nrr.toFixed(2);
+        }
+      });
+    }
 
-  <footer>
-    💥 Let the battle begin! May the best team win! 💥
-  </footer>
+    function loadHistory() {
+      const matchData = JSON.parse(localStorage.getItem('matchHistory')) || [];
+      const historyBody = document.querySelector('#matchHistory tbody');
+      historyBody.innerHTML = '';
+      matchData.forEach(match => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${match.teamA}</td>
+          <td>${match.teamB}</td>
+          <td>${match.winner}</td>
+          <td>${match.runDiff}</td>
+          <td>${match.ballsLeft}</td>
+        `;
+        historyBody.appendChild(row);
+      });
+    }
 
+    function updateMatch() {
+      const teamA = document.getElementById('teamA').value.trim();
+      const teamB = document.getElementById('teamB').value.trim();
+      const winner = document.getElementById('winner').value.trim();
+      const runDiff = parseFloat(document.getElementById('runDiff').value);
+      const ballsLeft = parseInt(document.getElementById('ballsLeft').value);
+
+      if (!teamA || !teamB || !winner || isNaN(runDiff) || isNaN(ballsLeft)) {
+        alert('Please fill in all fields correctly.');
+        return;
+      }
+
+      const rows = document.querySelectorAll('#pointsTable tbody tr');
+      const pointsData = JSON.parse(localStorage.getItem('pointsTable')) || {};
+
+      rows.forEach(row => {
+        const name = row.cells[0].textContent;
+
+        if (name.toLowerCase() === teamA.toLowerCase() || name.toLowerCase() === teamB.toLowerCase()) {
+          if (!pointsData[name]) {
+            pointsData[name] = { played: 0, won: 0, lost: 0, points: 0, nrr: 0 };
+          }
+
+          pointsData[name].played += 1;
+
+          if (name.toLowerCase() === winner.toLowerCase()) {
+            pointsData[name].won += 1;
+          } else {
+            pointsData[name].lost += 1;
+          }
+
+          pointsData[name].points = pointsData[name].won * 2;
+          pointsData[name].nrr = name.toLowerCase() === winner.toLowerCase()
+            ? ((pointsData[name].nrr * (pointsData[name].played - 1) + (runDiff + ballsLeft / 6)) / pointsData[name].played)
+            : ((pointsData[name].nrr * (pointsData[name].played - 1) - runDiff) / pointsData[name].played);
+        }
+      });
+
+      localStorage.setItem('pointsTable', JSON.stringify(pointsData));
+
+      // Save match history
+      const matchHistory = JSON.parse(localStorage.getItem('matchHistory')) || [];
+      matchHistory.push({ teamA, teamB, winner, runDiff, ballsLeft });
+      localStorage.setItem('matchHistory', JSON.stringify(matchHistory));
+
+      loadPoints();
+      loadHistory();
+
+      document.getElementById('teamA').value = '';
+      document.getElementById('teamB').value = '';
+      document.getElementById('winner').value = '';
+      document.getElementById('runDiff').value = '';
+      document.getElementById('ballsLeft').value = '';
+    }
+
+    window.onload = () => {
+      loadPoints();
+      loadHistory();
+    };
+  </script>
 </body>
 </html>
