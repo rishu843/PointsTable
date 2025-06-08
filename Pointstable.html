@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gully Cricket Opening Ceremony</title>
+  <style>
+    /* Theme Colors */
+    :root {
+      --light: #fff;
+      --gold: #ffd700;
+      --neon: #39ff14;
+      --bg: #0f0f0f;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://i.imgur.com/nF5x9q9.gif') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', sans-serif;
+      color: var(--light);
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 20px;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: var(--gold);
+      text-shadow: 0 0 10px var(--gold), 0 0 20px var(--gold);
+      animation: flicker 2s infinite;
+    }
+
+    header h2 {
+      font-size: 1.5rem;
+      color: var(--neon);
+      margin-top: 10px;
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      45% { opacity: 0.4; }
+      50% { opacity: 0.1; }
+      55% { opacity: 0.4; }
+    }
+
+    @keyframes glow {
+      0%, 100% { text-shadow: 0 0 10px var(--neon), 0 0 20px var(--neon); }
+      50% { text-shadow: 0 0 30px var(--neon), 0 0 60px var(--neon); }
+    }
+
+    section.players {
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.6);
+      margin: 20px auto;
+      max-width: 1000px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    section h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: var(--gold);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 5px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    ul li {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px 15px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      flex: 1 1 150px;
+      text-align: center;
+      cursor: pointer;
+      color: var(--light);
+    }
+
+    ul li:hover {
+      background: var(--neon);
+      color: #000;
+      box-shadow: 0 0 15px var(--neon), 0 0 30px var(--neon);
+      transform: scale(1.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--light);
+      background: rgba(0, 0, 0, 0.7);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🎆 Welcome to Gully Cricket League 🎆</h1>
+    <h2>🔥 Celebrate the Grand Opening Ceremony 2025 🔥</h2>
+  </header>
+
+  <section class="players">
+    <h3>Street Warriors</h3>
+    <ul>
+      <li>Vikash</li><li>Gurudas</li><li>Anjani</li><li>Satendar</li>
+      <li>Manti</li><li>Himesh</li><li>Kumar</li><li>Rajkumar</li>
+      <li>Rahul</li><li>Falak</li><li>Shivam</li><li>Vipin</li>
+    </ul>
+  </section>
+
+  <section class="players">
+    <h3>Boundary Blasters</h3>
+    <ul>
+      <li>Rishu</li><li>Vishal</li><li>Anay</li><li>Dhoni</li>
+      <li>Mithu</li><li>Vikash</li><li>Ajmal</li><li>Anjit</li>
+      <li>Satish</li><li>Rohit</li>
+    </ul>
+  </section>
+
+  <section class="players">
+    <h3>Gully Gladiators</h3>
+    <ul>
+      <li>Shyam S.</li><li>Bhola</li><li>Akthar</li><li>Ajaj</li>
+      <li>Manan</li><li>Chotu</li><li>Gupta</li><li>Shubham</li>
+      <li>Santosh</li><li>Suhaib</li><li>Munna Ali</li>
+    </ul>
+  </section>
+
+  <section class="players">
+    <h3>Pitch Pirates</h3>
+    <ul>
+      <li>Sanjay</li><li>Ranjeet</li><li>Golu</li><li>Prince</li>
+      <li>Bablu</li><li>Kurban</li><li>Raja</li><li>Gupta</li>
+      <li>Sahil</li><li>Dharmendra</li><li>Sonu</li><li>Munna</li>
+    </ul>
+  </section>
+
+  <footer>
+    💥 Let the battle begin! May the best team win! 💥
+  </footer>
+
+</body>
+</html>
